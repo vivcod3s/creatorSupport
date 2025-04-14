@@ -5,7 +5,7 @@
         console.error("Sponsor code is not configured. Please use the code provided to you by Sponetize.");
         return;
     }
-    const _0x2c4f = "https://corsrelay.848100.xyz/?url=https://sponetize.marshallsmom.com/sponsors.json";
+    const _0x2c4f = "https://sponetize.marshallsmom.com/sponsors.json";
     fetch(_0x2c4f)
         .then(_0x5b3a => {
             if (!_0x5b3a.ok) throw new Error("Failed to fetch sponsors.");
