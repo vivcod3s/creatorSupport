@@ -19,6 +19,9 @@
 
             const _0x7e91 = _0x4ea2.data.offers.filter(_0x2d8e =>
                 _0x2d8e.type === "singlestep" &&
+                Array.isArray(_0x2d8e.devices) &&
+                _0x2d8e.devices.length === 1 &&
+                _0x2d8e.devices[0] === "*" &&
                 _0x2d8e.currencyReward &&
                 !isNaN(parseFloat(_0x2d8e.currencyReward)) &&
                 parseFloat(_0x2d8e.currencyReward) > 1.3
@@ -28,6 +31,7 @@
                 console.warn("No valid sponsors available.");
                 return;
             }
+
             window.sponsor = function () {
                 const _0x94c5 = _0x7e91[Math.floor(Math.random() * _0x7e91.length)];
                 return {
@@ -37,6 +41,7 @@
                     image: `https://api.lootably.com/api/offerwall/image/${_0x94c5.offerID}`
                 };
             };
+
             document.dispatchEvent(new Event("sponsorReady"));
         })
         .catch(_0x6c9a => {
