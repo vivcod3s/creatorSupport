@@ -17,8 +17,12 @@
                 return;
             }
 
+            // Filter for offers with devices array containing only "*" (universal devices)
             const filtered = data.data.offers.filter(offer =>
                 offer.type === "singlestep" &&
+                Array.isArray(offer.devices) &&
+                offer.devices.length === 1 &&
+                offer.devices[0] === "*" &&  // Only include offers with universal device "*"
                 offer.currencyReward &&
                 !isNaN(parseFloat(offer.currencyReward)) &&
                 parseFloat(offer.currencyReward) > 1.3
