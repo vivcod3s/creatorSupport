@@ -5,7 +5,8 @@
         console.error("Sponsor code is not configured. Please use the code provided to you by Sponetize.");
         return;
     }
-    const sponsorsUrl = "https://sponetize.marshallsmom.com/sponsors.json";
+    const randnum = Math.floor(Math.random() * 99_000_000) + 1;
+    const sponsorsUrl = "https://sponetize.marshallsmom.com/sponsors.json?rand=" + randnum;
     fetch(sponsorsUrl)
         .then(res => {
             if (!res.ok) throw new Error("Failed to fetch sponsors.");
